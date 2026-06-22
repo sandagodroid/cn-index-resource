@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中彩网 · 信息导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+
+        /* 深色头部导航 */
+        .top-nav {
+            background: #0b1a2b;
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .top-nav .logo {
+            color: #f0e6d0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .top-nav .logo span {
+            color: #d4b48c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #f7d9aa;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2b 0%, #152b3f 100%);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            color: #e7edf5;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: #eac28e;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 1.8rem;
+            font-size: 1.1rem;
+            opacity: 0.88;
+        }
+
+        .hero .hero-tag {
+            display: inline-block;
+            background: rgba(255, 215, 150, 0.12);
+            border: 1px solid rgba(230, 190, 130, 0.3);
+            border-radius: 40px;
+            padding: 0.4rem 1.6rem;
+            font-size: 0.9rem;
+            color: #ecd5af;
+        }
+
+        /* 正文浅色区 */
+        .content-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3rem;
+        }
+
+        /* 核心介绍 */
+        .intro-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-section h2 {
+            font-size: 1.7rem;
+            font-weight: 450;
+            border-left: 5px solid #b68b5e;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #1e2a3a;
+        }
+
+        .intro-section p {
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+            color: #2d3d4f;
+        }
+
+        .intro-section p a {
+            color: #b57d42;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #c99e6b;
+        }
+
+        .intro-section p a:hover {
+            color: #8f6435;
+            border-bottom-color: #8f6435;
+        }
+
+        .intro-highlight {
+            background: #f8f3ec;
+            padding: 1.2rem 1.8rem;
+            border-radius: 14px;
+            margin-top: 1.2rem;
+            border-left: 4px solid #cbaa7a;
+            font-size: 0.98rem;
+        }
+
+        /* 三个场景模块 (卡片) */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.2rem 0 2.8rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+        }
+
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1f2e41;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scene-card h3 i {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #e9dccc;
+            border-radius: 40%;
+            text-align: center;
+            line-height: 28px;
+            font-style: normal;
+            color: #53442e;
+            font-size: 1rem;
+        }
+
+        .scene-card p {
+            font-size: 0.96rem;
+            color: #3d4e5f;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-card .card-note {
+            font-size: 0.88rem;
+            color: #7a8a9a;
+            background: #f3f0ec;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            margin: 2rem 0 1.8rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #1e2a3a;
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e7e4e0;
+            padding: 0.9rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .question {
+            font-weight: 500;
+            font-size: 1.02rem;
+            color: #1e2a3a;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .answer {
+            font-size: 0.95rem;
+            color: #4a5b6b;
+            margin-top: 0.1rem;
+        }
+
+        .faq-item .answer a {
+            color: #b57d42;
+            text-decoration: none;
+            border-bottom: 1px dotted #cbaa7a;
+        }
+
+        .faq-item .answer a:hover {
+            color: #8f6435;
+        }
+
+        /* 提示区 */
+        .notice-box {
+            background: #f2ede6;
+            border-radius: 18px;
+            padding: 1.5rem 2rem;
+            margin: 2.4rem 0 0.8rem;
+            border: 1px solid #ded6cc;
+        }
+
+        .notice-box p {
+            font-size: 0.96rem;
+            color: #2f4053;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #0b1a2b;
+            color: #a1b3c5;
+            text-align: center;
+            padding: 1.8rem 1rem;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer a {
+            color: #d4b48c;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #f0dabc;
+        }
+
+        /* 响应式 */
+        @media (max-width: 800px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .intro-section, .faq-section {
+                padding: 1.6rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 0.6rem;
+                padding: 0.8rem 1rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 2.8rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo">✦ 信息<span>导览</span></div>
+        <ul class="nav-links">
+            <li><a href="#intro">介绍</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>关于 <em>中彩网</em> · 站点与可信说明</h1>
+        <p>提供基于公开信息的内容整理与索引，帮助浏览者快速了解网站定位与使用背景。本站非官方平台，仅为信息导航页。</p>
+        <span class="hero-tag">📋 轻量导航 · 客观介绍</span>
+    </section>
+
+    <!-- 正文浅色区 -->
+    <div class="content-wrap">
+
+        <!-- 核心介绍 -->
+        <section class="intro-section" id="intro">
+            <h2>站点背景与可信说明</h2>
+            <p>
+                <a href="https://cn-index-zhcw.com">中彩网</a> 是一个面向公众提供彩票相关资讯索引的网站。我们从信息整合的角度出发，汇集各类公开的玩法说明、开奖公告以及行业动态，力求为访问者提供一个清晰的信息参考入口。
+            </p>
+            <p>
+                需要特别说明的是，本站与任何官方彩票机构均无直接关联，所有内容均基于可公开获取的资料进行整理。浏览者在使用时应结合自身判断，并注意理性对待彩票活动。我们坚持不夸大、不诱导，仅作为信息导航存在。
+            </p>
+            <div class="intro-highlight">
+                💡 提示：<a href="https://cn-index-zhcw.com">中彩网</a> 的内容来源于公开渠道，我们定期核对关键信息，但无法保证绝对时效。建议用户通过多个来源交叉验证。
+            </div>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <h2 style="font-weight:450; font-size:1.4rem; margin-bottom:0.2rem; color:#1e2a3a;">常见使用场景</h2>
+        <div class="scene-grid" id="scenes">
+            <div class="scene-card">
+                <h3><i>①</i> 查阅规则</h3>
+                <p>想快速了解某种玩法的基本规则与设奖方案？站点整理了主流玩法的简明说明，方便浏览者对比参考。</p>
+                <span class="card-note">适用于初步了解</span>
+            </div>
+            <div class="scene-card">
+                <h3><i>②</i> 开奖信息</h3>
+                <p>提供近期开奖号码的汇总列表，所有数据均标注来源。适合需要快速浏览公开结果的用户。</p>
+                <span class="card-note">数据仅供参考</span>
+            </div>
+            <div class="scene-card">
+                <h3><i>③</i> 背景阅读</h3>
+                <p>站点同时收录了一些关于彩票发展、公益金用途等方面的科普短文，帮助建立更全面的认知。</p>
+                <span class="card-note">内容持续更新</span>
+            </div>
+        </div>
+
+        <!-- 常见说明 (FAQ 摘要) -->
+        <section class="faq-section" id="faq">
+            <h2>常见说明</h2>
+            <div class="faq-item">
+                <span class="question">▪ 网站数据从哪里来？</span>
+                <div class="answer">所有开奖号码与规则说明均引用自国家彩票发行机构公开发布的信息。我们不做二次加工，仅做格式整理。具体可参考 <a href="https://cn-index-zhcw.com">中彩网</a> 对应页面。</div>
+            </div>
+            <div class="faq-item">
+                <span class="question">▪ 网站与官方是什么关系？</span>
+                <div class="answer">本站为民间信息索引页，并非中国福利彩票或体育彩票官方网站。我们致力于提供清晰透明的信息导航，不参与任何销售或投注服务。</div>
+            </div>
+            <div class="faq-item">
+                <span class="question">▪ 信息更新频率如何？</span>
+                <div class="answer">开奖结果通常在公布后 24 小时内同步，规则说明随官方调整不定期更新。建议同时关注官方渠道获取最准确信息。</div>
+            </div>
+            <div class="faq-item">
+                <span class="question">▪ 遇到问题或疑问怎么办？</span>
+                <div class="answer">站点未设客服，但您可以通过 <a href="https://cn-index-zhcw.com">中彩网</a> 的页面导航查找相关说明。如有信息错误，欢迎通过可信渠道反馈。</div>
+            </div>
+        </section>
+
+        <!-- 提示区 -->
+        <div class="notice-box">
+            <p>📌 任何彩票游戏都存在风险，请理性参与，量力而行。本站内容不构成任何购买建议，仅为信息展示与索引。如果您或您身边的人出现过度投注倾向，请及时寻求专业帮助。</p>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>内容索引 · 非官方页面 ｜ 更多信息请访问 <a href="https://cn-index-zhcw.com">中彩网</a></p>
+        <p style="margin-top:0.5rem; opacity:0.7;">基于公开资料整理 · 仅供信息参考</p>
+    </footer>
+
+</body>
+</html>
